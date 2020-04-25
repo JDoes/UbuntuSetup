@@ -1,0 +1,144 @@
+*** Ubuntu Install Notes
+
+sudo apt install terminator
+
+*** Upgrade to most recent distro
+sudo do-release-upgrade
+
+*** Download Chrome from internet
+
+sudo chmod +x google-chrome....
+sudo dpkg -i google-chrome......
+sudo apt install -f
+
+*** Install Arduino IDE
+https://askubuntu.com/questions/107619/how-do-i-install-the-arduino-ide/913537
+
+sudo apt-get install ubuntu-make
+sudo add-apt-repository ppa:ubuntu-desktop/ubuntu-make
+sudo apt-get update -y
+sudo apt-get upgrade -y
+umake electronics arduino
+
+*** Install YoutubeDL (with GUI)
+
+sudo wget https://yt-dl.org/downloads/latest/youtube-dl -O /usr/local/bin/youtube-dl
+sudo chmod a+rx /usr/local/bin/youtube-dl
+sudo add-apt-repository ppa:nilarimogard/webupd8
+sudo apt-get update
+sudo apt-get install youtube-dlg
+
+
+*** Install VLC
+
+sudo apt-get install vlc
+
+*** Install Mimio (having problems here)
+
+From my post on:
+https://askubuntu.com/questions/1013562/having-trouble-installing-mimio-studio-smartboard-software/1017815
+
+also see:
+http://www.edugeek.net/forums/nix/132648-mimio-ubuntu-13-10-a.html 
+
+sudo dpkg -i mimio.....
+sudo apt-get install libc6:i386 libgcc1:i386 gcc-4.6-base:i386 libstdc++5:i386 libstdc++6:i386
+sudo apt-get install -f
+sudo chown -R icymike:icymike /home/icymike/.mimio
+
+*** Gnome Tweaks
+full date and time
+remove trash from desktop
+
+*** Click to minimize:
+gsettings set org.gnome.shell.extensions.dash-to-dock click-action 'minimize'
+
+*** 30 things to do after installing Ubuntu 18.04
+https://www.youtube.com/watch?v=BLVtxpm5c2A
+
+
+*** Install Libre Office (removed it, because icons looked weird. Trying Apache open office instead)
+sudo add-apt-repository ppa:libreoffice/ppa
+sudo apt-get update
+sudo apt-get install libreoffice
+*** to uninstall:
+sudo apt-get install ppa-purge && sudo ppa-purge ppa:libreoffice/ppa
+
+*** install open office 
+(http://www.liberiangeek.net/2013/08/apache-openoffice-4-0-releasedheres-how-to-install-it-in-ubuntu/)
+
+wget http://sourceforge.net/projects/openofficeorg.mirror/files/4.0.0/binaries/en-US/Apache_OpenOffice_4.0.0_Linux_x86-64_install-deb_en-US.tar.gz
+
+tar -xvf Apache_OpenOffice*.tar.gz
+
+sudo dpkg -i en-US/DEBS/*.deb
+
+sudo dpkg -i en-US/DEBS/desktop-integration/*.deb
+
+
+
+*** install dconf editor to get apps button to move
+
+*** tweaks extensions from GNOME: hot corners, force quit, Google Earth wallpaper
+
+*** STOP alert that "Printer added"
+Edit /etc/cups-browsed.conf, changing the BrowseRemoteProtocols CUPS
+dnssd line to BrowseRemoteProtocols none
+
+*** Mount Google Drive as a disk in Ubuntu
+sudo add-apt-repository ppa:alessandro-strada/ppa
+sudo apt-get update
+sudo apt-get install google-drive-ocamlfuse
+*** Give Authorization by doing the command and following the browser prompts:
+google-drive-ocamlfuse
+*** change directory to home and make a Google Drive folder there. Two spaces after cd goes to home/icymike/
+cd   
+mkdir ~/google-drive
+*** Now, start ocamlfuse and mount the drive:
+add this command to the .profile document, using vi
+
+vi .profile
+google-drive-ocamlfuse ~/google-drive
+:wq (to write and quit)
+
+
+*** Install VSCode
+sudo apt install software-properties-common apt-transport-https wget
+wget -q https://packages.microsoft.com/keys/microsoft.asc -O- | sudo apt-key add -
+sudo add-apt-repository "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main"
+sudo apt update
+sudo apt install code
+
+*** Install IntelliJ IDEA (for Java)
+get the jdk
+
+*** Install PyCharm (for Python)
+
+*** Install Android Studio
+
+*** Download and set up Selenium web driver, gecko driver (Firefox) and Chrome driver
+
+*** Configure Dock position and placement of buttons (undo gnome stuff with reset, instead of set)
+gsettings set org.gnome.shell.extensions.dash-to-dock show-apps-at-top true
+gsettings set org.gnome.nautilus.desktop trash-icon-visible false
+gsettings set org.gnome.shell.extensions.dash-to-dock click-action 'minimize'
+gsettings set org.gnome.shell.extensions.dash-to-dock dock-position RIGHT
+
+*** Gnome Tweaks, for hot corners and other stuff too. FOR HOT CORNERS TO WORK, install wmctrl:
+sudo apt install wmctrl
+sudo apt install gnome-tweaks
+sudo apt install gnome-shell-extensions
+sudo apt-get install chrome-gnome-shell
+
+*** Set Vim to do numbers on each line
+sudo apt install vim
+echo ':set number' > /home/$USER/.vimrc
+
+
+
+
+
+
+
+
+
