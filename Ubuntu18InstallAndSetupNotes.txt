@@ -132,12 +132,21 @@ sudo apt-get install chrome-gnome-shell
 
 *** Set Vim to do numbers on each line
 sudo apt install vim
+touch .vimrc
 echo ':set number' > /home/$USER/.vimrc
 
+*** Instal gvim
+sudo apt install vim-gnome
+(open by gvim in terminal)
 
+*** Install Cherry Tree:
+sudo apt install cherrytree
 
+*** Make Dock icons small:
+Settings > Dock > Icon size > (adjust to liking)
 
-
+*** Make directory thumbnails smaller:
+- Three horizontal lines symbol > zoom out (minus sign) to 50%
 
 
 
