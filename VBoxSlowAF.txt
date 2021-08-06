@@ -1,0 +1,32 @@
+VBox slooooow A.F.
+
+
+
+REDDIT:
+https://www.reddit.com/r/virtualbox/comments/houi9k/how_to_fix_virtualbox_61_running_slow_on_mac/
+
+Note: this is not a post about running MacOS on VirtualBox, but running VirtualBox on a Mac.
+
+I'm using a Macbook Pro 16" and using VirtualBox 6.1 to run Ubuntu 20, I have installed Guest Additions on Ubuntu. VirtualBox seemed to run slow but I found the solution was actually to do with resolution. Posting because it took awhile searching through various forums how to speed VB up so I thought a consolidated post could help some other beginners out.
+
+Step 1: Install guest additions for VirtualBox. It's pretty easy and there are tutorials on how to do this. Once it's installed the features that are useful for the next steps are all automatically applied.
+
+$ sudo add-apt-repository multiverse
+$ sudo apt install virtualbox-guest-dkms virtualbox-guest-x11
+
+Step 2: Setting VirtualBox VM to open in low resolution (don't worry, by low resolution I believe it just means lower than the Retina display resolution, not that its going to be in a terrible resolution once you set this, mine looks great).
+
+Go to applications > right click VirtualBox > Show Package Contents > expand Resources folder > then right click VirtualBoxVM application file > click on Get Info > then you'll see a check box that says "Open in low resolution". Check this box.
+
+Step 3: Make sure scale is set to 100%
+
+To make sure you're scale is set to 100% (mine was set to 200% from previously trying to fix resolution issues so yours may already be at 100%). You do this by clicking on the tiny monitor/screen icon on the bottom right of the VM window. Then click on Virtual Screen 1 and select 100%.
+
+Step 4: Make sure Auto-Resize guest display is selected
+
+This should be selected automatically after installing the guest additions but just to make sure you want to click on the same monitor/screen icon in step 3 and select "Auto-Resize guest display" if there isn't already a check next to it.
+
+Step 5: Set the graphics controller to VBoxSVGA (skip this step if you want, explanation below)
+
+This is the last step and to be honest I do not know what it does. I was following the recommendations of someone else who was having the same laggy issues with VirtualBox on a newer Mac but even before doing this my Ubuntu in VirtualBox was already running smoothly. But hey, it probably does something important that I don't realize. But all you have to do is once you open VirtualBox and before running your VM you want to click on Settings > Display > and once here you change the graphics controller to VBoxSVGA. It may pop up a little warning that says Invalid Settings Detected but I just ignored that and everything's working fine.
+
